@@ -18,9 +18,9 @@ public class UserService {
         return userRepositories.save(user).getId();
     }
     public User getUserById(int id){
-
-        if(userRepositories.existsById(id)){
-            return userRepositories.findById(id);
+        User user = userRepositories.findById(id);
+        if(user != null){
+            return user;
         } else throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"User Id does not exist!");
 
 
